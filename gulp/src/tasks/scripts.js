@@ -25,4 +25,18 @@ module.exports = () => {
       .pipe(blinker.gulp.dest(blinker.config.temporaryPath + '/' + blinker.config.javascriptDirectory + '/'))
       .pipe(blinker.plugins.browser_sync.reload({stream: true}));
   });
+
+  blinker.gulp.task('scripts:build', () => {
+    return blinker.gulp.src(blinker.config.temporaryPath + '/' + blinker.config.javascriptDirectory + '/**/*.js')
+      .pipe(blinker.plugins.order([
+        blinker.config.temporaryPath + '/' + blinker.config.javascriptDirectory + '/libraries.js',
+        blinker.config.temporaryPath + '/' + blinker.config.javascriptDirectory + '/libs/*.js',
+        blinker.config.temporaryPath + '/' + blinker.config.javascriptDirectory + '/**/*.js'
+      ],  { base: './' }))
+      .pipe(blinker.plugins.concat('all.js'))
+      .pipe(blinker.gulp.dest(blinker.config.destinationPath + '/' + blinker.config.javascriptDirectory))
+      .pipe(blinker.plugins.uglify())
+      .pipe(blinker.plugins.rename('all.min.js'))
+      .pipe(blinker.gulp.dest(blinker.config.destinationPath + '/' + blinker.config.javascriptDirectory))
+  });
 };

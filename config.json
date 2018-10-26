@@ -1,0 +1,22 @@
+{
+  "environment" : "development",
+
+  "viewsDirectory" : "views",
+  "stylesDirectory" : "styles",
+  "javascriptDirectory" : "js",
+  "pngSpriteDirectory" : "images/png_sprite",
+  "imagesDirectory" : "images",
+
+  "sourcePath" : "src/app",
+  "destinationPath" : "src/public",
+  "temporaryPath" : "src/.tmp",
+
+  "template_engine" : "twig",
+
+  "javascript_libraries" : [
+    "./node_modules/jquery/dist/jquery.min.js"
+  ],
+
+  "use_babel" : true,
+  "minify_images" : true
+}

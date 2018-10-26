@@ -1,0 +1,29 @@
+{
+  "name": "blinker",
+  "version": "1.0.0",
+  "description": "blank structure for html layout",
+  "author": "enocryph",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "babel-core": "^6.26.3",
+    "browser-sync": "^2.26.3",
+    "del": "^3.0.0",
+    "files-exist": "^1.1.0",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^3.0.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-twig": "^1.2.0",
+    "gulp.spritesmith": "^6.9.0",
+    "jquery": "^3.3.1",
+    "merge-stream": "^1.0.1"
+  }
+}

@@ -20,7 +20,8 @@ global.blinker = {
     clean: require('gulp-clean'),
     file_exist: require('files-exist'),
     uglify: require('gulp-uglify'),
-    order: require('gulp-order')
+    order: require('gulp-order'),
+    source_maps: require('gulp-sourcemaps')
   },
 };
 
@@ -32,15 +33,14 @@ blinker.core.errorHandler.initialize();
 
 blinker.gulp.task('dev', blinker.gulp.series(
   blinker.gulp.parallel('clean'),
-  blinker.gulp.parallel('png-sprite', 'images:copy'),
+  blinker.gulp.parallel('png-sprite', 'images:copy', 'fonts:copy'),
   blinker.gulp.parallel('templates', 'styles', 'scripts:libraries', 'scripts'),
   blinker.gulp.parallel('watch', 'serve')
 ));
 
 blinker.gulp.task('build', blinker.gulp.series(
   blinker.gulp.parallel('clean'),
-  blinker.gulp.parallel('png-sprite', 'images:copy', 'images:minify'),
-  blinker.gulp.parallel('templates', 'styles:build', 'scripts:libraries', 'scripts'),
+  blinker.gulp.parallel('png-sprite', 'images:copy', 'fonts:copy'),
+  blinker.gulp.parallel('images:minify', 'templates', 'styles:build', 'scripts:libraries', 'scripts'),
   blinker.gulp.parallel('dist', 'scripts:build')
 ));
-

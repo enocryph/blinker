@@ -6,6 +6,7 @@
   "javascriptDirectory" : "js",
   "pngSpriteDirectory" : "images/png_sprite",
   "imagesDirectory" : "images",
+  "fontsDirectory" : "fonts",
 
   "sourcePath" : "src/app",
   "destinationPath" : "src/public",
@@ -18,5 +19,8 @@
   ],
 
   "use_babel" : true,
-  "minify_images" : true
+  "minify_images" : true,
+  "css_source_maps" : false,
+  "js_source_maps" : true,
+  "concatenate_scripts" : true
 }

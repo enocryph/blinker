@@ -14,7 +14,7 @@ module.exports = () => {
             bust: false,
             render: {
               "scss": {
-                "dest": `${blinker.config.sourcePath}/${blinker.config.stylesDirectory}/svg-sprite.scss`,
+                "dest": `${blinker.config.sourcePath}/${blinker.config.stylesDirectory}/sprites/svg-sprite.scss`,
                 "template": "./svg-sprite-template.txt"
               }
             }
@@ -52,7 +52,7 @@ module.exports = () => {
             inline: false,
             render: {
               scss: {
-                dest: `${blinker.config.sourcePath}/${blinker.config.stylesDirectory}/svg-sprite-inline.scss`,
+                dest: `${blinker.config.sourcePath}/${blinker.config.stylesDirectory}/sprites/svg-sprite-inline.scss`,
                 template: "./svg-sprite-inline-template.txt"
               }
             }

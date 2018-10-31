@@ -13,7 +13,7 @@ module.exports = () => {
       }));
 
     const destImg = spriteData.img.pipe(blinker.gulp.dest(blinker.config.temporaryPath + '/' + blinker.config.pngSpriteDirectory));
-    const destCss = spriteData.css.pipe(blinker.gulp.dest(blinker.config.sourcePath + '/' + blinker.config.stylesDirectory + '/'));
+    const destCss = spriteData.css.pipe(blinker.gulp.dest(blinker.config.sourcePath + '/' + blinker.config.stylesDirectory + '/sprites/'));
 
     return blinker.plugins.merge(destImg, destCss);
   });

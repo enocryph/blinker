@@ -8,5 +8,6 @@ module.exports = [
   './gulp/src/tasks/scripts',
   './gulp/src/tasks/png-sprite',
   './gulp/src/tasks/images-minify',
-  './gulp/src/tasks/copy'
+  './gulp/src/tasks/copy',
+  './gulp/src/tasks/svg'
 ];

@@ -21,7 +21,9 @@ global.blinker = {
     file_exist: require('files-exist'),
     uglify: require('gulp-uglify'),
     order: require('gulp-order'),
-    source_maps: require('gulp-sourcemaps')
+    source_maps: require('gulp-sourcemaps'),
+    svg_min: require('gulp-svgmin'),
+    svg_sprite: require('gulp-svg-sprite'),
   },
 };
 
@@ -33,7 +35,7 @@ blinker.core.errorHandler.initialize();
 
 blinker.gulp.task('dev', blinker.gulp.series(
   blinker.gulp.parallel('clean'),
-  blinker.gulp.parallel('png-sprite', 'images:copy', 'fonts:copy'),
+  blinker.gulp.parallel('png-sprite', 'images:copy', 'fonts:copy', 'svg:sprite'),
   blinker.gulp.parallel('templates', 'styles', 'scripts:libraries', 'scripts'),
   blinker.gulp.parallel('watch', 'serve')
 ));

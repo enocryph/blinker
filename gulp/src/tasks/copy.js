@@ -3,7 +3,8 @@ module.exports = () => {
     return blinker.gulp.src(
       [
         './' + blinker.config.sourcePath + '/' + blinker.config.imagesDirectory + '/**/*',
-        '!./' + blinker.config.sourcePath + '/' + blinker.config.imagesDirectory + '/png_sprite/**/*',
+        '!./' + blinker.config.sourcePath + '/' + blinker.config.pngSpriteDirectory + '/**/*',
+        '!./' + blinker.config.sourcePath + '/' + blinker.config.svgSpriteDirectory + '/**/*',
       ]
     )
       .pipe(blinker.gulp.dest(blinker.config.temporaryPath + '/' + blinker.config.imagesDirectory))

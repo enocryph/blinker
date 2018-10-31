@@ -1,4 +1,9 @@
 @import "png-sprite";
+@import "svg-sprite";
 
 //Mixins
 @import "mixins/png-sprite";
+@import "mixins/svg-sprite";
+
+//Blocks
+@import "blocks/main-section";

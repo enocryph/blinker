@@ -13,7 +13,12 @@ module.exports = () => {
         blinker.config.sourcePath + '/' + blinker.config.viewsDirectory + '/**/*.html'
       ],
       blinker.gulp.series('templates'));
-    blinker.gulp.watch([blinker.config.sourcePath + '/' + blinker.config.javascriptDirectory + '/**/*.js'], blinker.gulp.series('scripts'));
+    blinker.gulp.watch(
+      [
+        './' + blinker.config.sourcePath + '/' + blinker.config.javascriptDirectory + '/**/*.js',
+        '!./' + blinker.config.sourcePath + '/' + blinker.config.javascriptDirectory + '/libraries.js'
+      ],
+      blinker.gulp.series('scripts'));
     blinker.gulp.watch([blinker.config.sourcePath + '/' + blinker.config.pngSpriteDirectory + '/*.png'],  blinker.gulp.series('png-sprite'));
     blinker.gulp.watch(['./' + blinker.config.sourcePath + '/' + blinker.config.imagesDirectory + '/**/*'],  blinker.gulp.series('images:copy'));
     blinker.gulp.watch(['./' + blinker.config.sourcePath + '/' + blinker.config.fontsDirectory + '/**/*'],  blinker.gulp.series('fonts:copy'));

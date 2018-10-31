@@ -8,6 +8,7 @@
   "imagesDirectory" : "images",
   "fontsDirectory" : "fonts",
   "svgSpriteDirectory" : "images/svg_sprite",
+  "svgInlineSpriteDirectory" : "images/svg_sprite_inline",
 
   "sourcePath" : "src/app",
   "destinationPath" : "src/public",

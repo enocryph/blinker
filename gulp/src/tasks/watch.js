@@ -23,5 +23,6 @@ module.exports = () => {
     blinker.gulp.watch(['./' + blinker.config.sourcePath + '/' + blinker.config.imagesDirectory + '/**/*'],  blinker.gulp.series('images:copy'));
     blinker.gulp.watch(['./' + blinker.config.sourcePath + '/' + blinker.config.fontsDirectory + '/**/*'],  blinker.gulp.series('fonts:copy'));
     blinker.gulp.watch(['./' + blinker.config.sourcePath + '/' + blinker.config.svgSpriteDirectory + '/**/*.svg'],  blinker.gulp.series('svg:sprite'));
+    blinker.gulp.watch(['./' + blinker.config.sourcePath + '/' + blinker.config.svgInlineSpriteDirectory + '/**/*.svg'],  blinker.gulp.series('svg:inline'));
   });
 };

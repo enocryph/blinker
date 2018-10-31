@@ -9,5 +9,6 @@ module.exports = [
   './gulp/src/tasks/png-sprite',
   './gulp/src/tasks/images-minify',
   './gulp/src/tasks/copy',
-  './gulp/src/tasks/svg'
+  './gulp/src/tasks/svg',
+  './gulp/src/tasks/critical-css'
 ];

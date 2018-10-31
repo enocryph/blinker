@@ -25,13 +25,17 @@ global.blinker = {
     svg_min: require('gulp-svgmin'),
     svg_sprite: require('gulp-svg-sprite'),
     cheerio: require('gulp-cheerio'),
-    replace: require('gulp-replace')
+    replace: require('gulp-replace'),
   },
 };
 
 blinker.core.forEach(taskPath => {
   require(taskPath)()
 });
+
+if (blinker.config.critical_css) {
+  blinker.plugins.critical = require('critical').stream;
+}
 
 blinker.core.errorHandler.initialize();
 
@@ -46,5 +50,6 @@ blinker.gulp.task('build', blinker.gulp.series(
   blinker.gulp.parallel('clean'),
   blinker.gulp.parallel('png-sprite', 'images:copy', 'fonts:copy'),
   blinker.gulp.parallel('images:minify', 'templates', 'styles:build', 'scripts:libraries', 'scripts'),
-  blinker.gulp.parallel('dist', 'scripts:build')
+  blinker.gulp.parallel('dist', 'scripts:build'),
+  blinker.gulp.parallel('styles:critical')
 ));

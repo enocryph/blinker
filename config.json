@@ -9,6 +9,7 @@
   "fontsDirectory" : "fonts",
   "svgSpriteDirectory" : "images/svg_sprite",
   "svgInlineSpriteDirectory" : "images/svg_sprite_inline",
+  "criticalDirectory" : "critical",
 
   "sourcePath" : "src/app",
   "destinationPath" : "src/public",
@@ -24,5 +25,6 @@
   "minify_images" : true,
   "css_source_maps" : false,
   "js_source_maps" : true,
-  "concatenate_scripts" : true
+  "concatenate_scripts" : true,
+  "critical_css" : false
 }

@@ -48,7 +48,7 @@ blinker.gulp.task('dev', blinker.gulp.series(
 
 blinker.gulp.task('build', blinker.gulp.series(
   blinker.gulp.parallel('clean'),
-  blinker.gulp.parallel('png-sprite', 'images:copy', 'fonts:copy'),
+  blinker.gulp.parallel('png-sprite', 'images:copy', 'fonts:copy', 'svg:sprite', 'svg:inline'),
   blinker.gulp.parallel('images:minify', 'templates', 'styles:build', 'scripts:libraries', 'scripts'),
   blinker.gulp.parallel('dist', 'scripts:build'),
   blinker.gulp.parallel('styles:critical')

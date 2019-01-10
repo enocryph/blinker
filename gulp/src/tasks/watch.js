@@ -10,7 +10,8 @@ module.exports = () => {
     blinker.gulp.watch(
       [
         blinker.config.sourcePath + '/' + blinker.config.viewsDirectory + '/**/*.twig',
-        blinker.config.sourcePath + '/' + blinker.config.viewsDirectory + '/**/*.html'
+        blinker.config.sourcePath + '/' + blinker.config.viewsDirectory + '/**/*.html',
+        blinker.config.sourcePath + '/' + blinker.config.viewsDirectory + '/**/*.htm'
       ],
       blinker.gulp.series('templates'));
     blinker.gulp.watch(

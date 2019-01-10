@@ -26,6 +26,7 @@ global.blinker = {
     svg_sprite: require('gulp-svg-sprite'),
     cheerio: require('gulp-cheerio'),
     replace: require('gulp-replace'),
+    inline_css: require('gulp-inline-css')
   },
 };
 
@@ -51,5 +52,6 @@ blinker.gulp.task('build', blinker.gulp.series(
   blinker.gulp.parallel('png-sprite', 'images:copy', 'fonts:copy', 'svg:sprite', 'svg:inline'),
   blinker.gulp.parallel('images:minify', 'templates', 'styles:build', 'scripts:libraries', 'scripts'),
   blinker.gulp.parallel('dist', 'scripts:build'),
+  blinker.gulp.parallel('styles:inline'),
   blinker.gulp.parallel('styles:critical')
 ));

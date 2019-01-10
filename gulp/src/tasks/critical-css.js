@@ -1,7 +1,7 @@
 module.exports = () => {
   blinker.gulp.task('styles:critical', function () {
     if (blinker.config.critical_css) {
-      return blinker.gulp.src(blinker.config.destinationPath + '/**/*.html')
+      return blinker.gulp.src(blinker.config.destinationPath + '/**/*.{html,htm}')
         .pipe(blinker.plugins.critical({
           inline: false,
           base: `${blinker.config.destinationPath}/`,

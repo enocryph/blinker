@@ -15,7 +15,7 @@
   "destinationPath" : "src/public",
   "temporaryPath" : "src/.tmp",
 
-  "template_engine" : "twig",
+  "template_engine" : "html",
 
   "javascript_libraries" : [
     "./node_modules/jquery/dist/jquery.min.js"
@@ -26,5 +26,6 @@
   "css_source_maps" : false,
   "js_source_maps" : true,
   "concatenate_scripts" : true,
-  "critical_css" : false
+  "critical_css" : false,
+  "inline_css" : true
 }

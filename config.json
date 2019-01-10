@@ -15,7 +15,7 @@
   "destinationPath" : "src/public",
   "temporaryPath" : "src/.tmp",
 
-  "template_engine" : "twig",
+  "template_engine" : "html",
 
   "javascript_libraries" : [
     "./node_modules/jquery/dist/jquery.min.js"

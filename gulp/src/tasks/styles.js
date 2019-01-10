@@ -39,7 +39,7 @@ module.exports = () => {
 
   blinker.gulp.task('styles:inline', function () {
     if (blinker.config.inline_css) {
-      return blinker.gulp.src('./' + blinker.config.destinationPath + '/**/*.html')
+      return blinker.gulp.src('./' + blinker.config.destinationPath + '/**/*.{html,htm}')
         .pipe(blinker.plugins.inline_css())
         .pipe(blinker.gulp.dest('./' + blinker.config.destinationPath));
     }

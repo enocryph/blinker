@@ -39,10 +39,10 @@ module.exports = () => {
 
   blinker.gulp.task('styles:inline', function () {
     if (blinker.config.inline_css) {
-      return blinker.gulp.src('./' + blinker.config.temporaryPath + '/**/*.html')
-        .pipe(inlineCss())
-        .pipe(gulp.dest('./' + blinker.config.temporaryPath));
+      return blinker.gulp.src('./' + blinker.config.destinationPath + '/**/*.html')
+        .pipe(blinker.plugins.inline_css())
+        .pipe(blinker.gulp.dest('./' + blinker.config.destinationPath));
     }
-    return blinker.gulp.src('./' + blinker.config.temporaryPath + '/**/*.html');
+    return blinker.gulp.src('./' + blinker.config.destinationPath + '/**/*.html');
   });
 };

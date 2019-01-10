@@ -36,4 +36,13 @@ module.exports = () => {
       .pipe(blinker.plugins.browser_sync.reload({stream: true}));
     return stream;
   });
+
+  blinker.gulp.task('styles:inline', function () {
+    if (blinker.config.inline_css) {
+      return blinker.gulp.src('./' + blinker.config.temporaryPath + '/**/*.html')
+        .pipe(inlineCss())
+        .pipe(gulp.dest('./' + blinker.config.temporaryPath));
+    }
+    return blinker.gulp.src('./' + blinker.config.temporaryPath + '/**/*.html');
+  });
 };

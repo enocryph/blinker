@@ -1,7 +1,7 @@
 module.exports = () => {
   gulp.task('styles:critical', function () {
     if (config.critical_css) {
-      return gulp.src(config.destinationPath + '/**/*.{html,htm}')
+      return gulp.src(`${config.destinationPath}/**/*.{html,htm}`)
         .pipe(plugins.critical({
           inline: false,
           base: `${config.destinationPath}/`,
@@ -18,9 +18,9 @@ module.exports = () => {
         .on('error', function (err) {
           console.error(err.message);
         })
-        .pipe(gulp.dest(config.destinationPath + '/critical/'));
+        .pipe(gulp.dest(`${config.destinationPath}/critical/`));
     }
 
-    return gulp.src(config.destinationPath + '/html/**/*.html');
+    return gulp.src(`${config.destinationPath}/html/**/*.html`);
   });
 };

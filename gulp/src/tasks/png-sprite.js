@@ -1,6 +1,6 @@
 module.exports = () => {
   gulp.task('png-sprite', function () {
-        const spriteData = gulp.src(config.sourcePath + '/' + config.pngSpriteDirectory + '/*.png')
+    const spriteData = gulp.src(`${config.sourcePath}/${config.pngSpriteDirectory}/*.png`)
       .pipe(plugins.png_sprite({
         imgName: 'sprite.png',
         cssName: 'png-sprite.scss',
@@ -12,9 +12,8 @@ module.exports = () => {
         }
       }));
 
-    const destImg = spriteData.img.pipe(gulp.dest(config.temporaryPath + '/' + config.pngSpriteDirectory));
-    const destCss = spriteData.css.pipe(gulp.dest(config.sourcePath + '/' + config.stylesDirectory + '/sprites/'));
-
+    const destImg = spriteData.img.pipe(gulp.dest(`${config.temporaryPath}/${config.pngSpriteDirectory}`));
+    const destCss = spriteData.css.pipe(gulp.dest(`${config.sourcePath}/${config.stylesDirectory}/sprites/`));
     return plugins.merge(destImg, destCss);
   });
 };

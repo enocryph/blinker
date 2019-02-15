@@ -27,5 +27,5 @@
   "js_source_maps" : false,
   "concatenate_scripts" : false,
   "critical_css" : false,
-  "inline_css" : false
+  "inline_css" : false,
 }

@@ -12,7 +12,7 @@
   "criticalDirectory" : "critical",
 
   "sourcePath" : "src/app",
-  "destinationPath" : "src/public",
+  "destinationPath" : "public",
   "temporaryPath" : "src/.tmp",
 
   "template_engine" : "html",
@@ -21,11 +21,11 @@
     "./node_modules/jquery/dist/jquery.min.js"
   ],
 
-  "use_babel" : true,
-  "minify_images" : true,
+  "use_babel" : false,
+  "minify_images" : false,
   "css_source_maps" : false,
-  "js_source_maps" : true,
-  "concatenate_scripts" : true,
+  "js_source_maps" : false,
+  "concatenate_scripts" : false,
   "critical_css" : false,
-  "inline_css" : true
+  "inline_css" : false
 }

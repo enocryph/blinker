@@ -27,6 +27,7 @@ global.plugins = {
   replace: require('gulp-replace'),
   inline_css: require('gulp-inline-css'),
   dom_src: require('gulp-dom-src'),
+  obfuscator: require('gulp-javascript-obfuscator')
 };
 
 core.forEach(taskPath => {

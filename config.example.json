@@ -1,0 +1,87 @@
+{
+  "environment": "development",
+  "viewsDirectory": "views",
+  "stylesDirectory": "styles",
+  "javascriptDirectory": "js",
+  "pngSpriteDirectory": "images/png_sprite",
+  "imagesDirectory": "images",
+  "fontsDirectory": "fonts",
+  "svgSpriteDirectory": "images/svg_sprite",
+  "svgInlineSpriteDirectory": "images/svg_sprite_inline",
+  "criticalDirectory": "critical",
+  "sourcePath": "src/app",
+  "destinationPath": "public",
+  "temporaryPath": "src/.tmp",
+  "template_engine": "html",
+  "javascript_libraries": [
+    "./node_modules/jquery/dist/jquery.min.js"
+  ],
+  "use_babel": false,
+  "minify_images": false,
+  "css_source_maps": false,
+  "js_source_maps": false,
+  "concatenate_scripts": false,
+  "critical_css": false,
+  "inline_css": false,
+  "js_custom_build_order": [
+    {
+      "src": [
+        "1.js",
+        "4.js",
+        "2.js"
+      ],
+      "minify": true,
+      "source_maps": false,
+      "concatenate": true,
+      "use_babel": true,
+      "obfuscate": true,
+      "obfuscate_options" : {
+        "compact": true,
+        "controlFlowFlattening": false,
+        "controlFlowFlatteningThreshold": 0.75,
+        "deadCodeInjection": false,
+        "deadCodeInjectionThreshold": 0.4,
+        "debugProtection": false,
+        "debugProtectionInterval": false,
+        "disableConsoleOutput": false,
+        "domainLock": [],
+        "identifierNamesGenerator": "hexadecimal",
+        "identifiersPrefix": "",
+        "inputFileName": "",
+        "log": false,
+        "renameGlobals": false,
+        "reservedNames": [],
+        "reservedStrings": [],
+        "rotateStringArray": true,
+        "seed": 0,
+        "selfDefending": false,
+        "sourceMap": false,
+        "sourceMapBaseUrl": "",
+        "sourceMapFileName": "",
+        "sourceMapMode": "separate",
+        "stringArray": true,
+        "stringArrayEncoding": false,
+        "stringArrayThreshold": 0.75,
+        "target": "browser",
+        "transformObjectKeys": false,
+        "unicodeEscapeSequence": false
+      },
+      "only_result_file" : true,
+      "name": "name.js"
+    },
+    {
+      "src": [
+        "6.js",
+        "5.js",
+        "7.js"
+      ],
+      "minify": true,
+      "source_maps": false,
+      "concatenate": true,
+      "use_babel": true,
+      "obfuscate": false,
+      "only_result_file" : false,
+      "name": "newone.js"
+    }
+  ]
+}

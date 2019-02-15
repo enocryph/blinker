@@ -1,31 +1,27 @@
 {
-  "environment" : "development",
-
-  "viewsDirectory" : "views",
-  "stylesDirectory" : "styles",
-  "javascriptDirectory" : "js",
-  "pngSpriteDirectory" : "images/png_sprite",
-  "imagesDirectory" : "images",
-  "fontsDirectory" : "fonts",
-  "svgSpriteDirectory" : "images/svg_sprite",
-  "svgInlineSpriteDirectory" : "images/svg_sprite_inline",
-  "criticalDirectory" : "critical",
-
-  "sourcePath" : "src/app",
-  "destinationPath" : "public",
-  "temporaryPath" : "src/.tmp",
-
-  "template_engine" : "html",
-
-  "javascript_libraries" : [
-    "./node_modules/jquery/dist/jquery.min.js"
-  ],
-
-  "use_babel" : false,
-  "minify_images" : false,
-  "css_source_maps" : false,
-  "js_source_maps" : false,
-  "concatenate_scripts" : false,
-  "critical_css" : false,
-  "inline_css" : false
+  "environment": "development",
+  "viewsDirectory": "views",
+  "stylesDirectory": "styles",
+  "javascriptDirectory": "js",
+  "pngSpriteDirectory": "images/png_sprite",
+  "imagesDirectory": "images",
+  "fontsDirectory": "fonts",
+  "svgSpriteDirectory": "images/svg_sprite",
+  "svgInlineSpriteDirectory": "images/svg_sprite_inline",
+  "criticalDirectory": "critical",
+  "sourcePath": "src/app",
+  "destinationPath": "public",
+  "temporaryPath": "src/.tmp",
+  "template_engine": "html",
+  "javascript_libraries": [],
+  "use_babel": false,
+  "minify_images": false,
+  "css_source_maps": false,
+  "js_source_maps": false,
+  "concatenate_scripts": false,
+  "obfuscate" : false,
+  "obfuscate_options": {},
+  "critical_css": false,
+  "inline_css": false,
+  "js_custom_build_order": false,
 }

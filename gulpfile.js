@@ -25,7 +25,8 @@ global.plugins = {
   svg_sprite: require('gulp-svg-sprite'),
   cheerio: require('gulp-cheerio'),
   replace: require('gulp-replace'),
-  inline_css: require('gulp-inline-css')
+  inline_css: require('gulp-inline-css'),
+  dom_src: require('gulp-dom-src'),
 };
 
 core.forEach(taskPath => {
@@ -50,6 +51,6 @@ gulp.task('build', gulp.series(
   gulp.parallel('png-sprite', 'images:copy', 'fonts:copy', 'svg:sprite', 'svg:inline'),
   gulp.parallel('images:minify', 'templates', 'styles:build', 'scripts:libraries', 'scripts'),
   gulp.parallel('dist', 'scripts:build'),
-  gulp.parallel('styles:inline'),
+  gulp.parallel('styles:inline', 'scripts:replace'),
   gulp.parallel('styles:critical')
 ));

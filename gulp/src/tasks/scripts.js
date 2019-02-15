@@ -39,7 +39,9 @@ module.exports = () => {
   });
 
   gulp.task('scripts:build', () => {
-    let stream = gulp.src(`${config.temporaryPath}/${config.javascriptDirectory}/**/*.js`);
+    let stream;
+
+    stream = gulp.src(`${config.temporaryPath}/${config.javascriptDirectory}/**/*.js`);
 
     if (config.concatenate_scripts) {
       stream = stream.pipe(plugins.order([
@@ -71,5 +73,15 @@ module.exports = () => {
     stream = stream.pipe(gulp.dest(`${config.destinationPath}/${config.javascriptDirectory}`));
 
     return stream;
+  });
+
+  gulp.task('scripts:replace', () => {
+    if (config.concatenate_scripts) {
+      gulp.src(`${config.destinationPath}/*.{html,htm}`).pipe(plugins.cheerio(function ($) {
+        $('script').remove();
+        $('body').append('<script src="js/all.min.js"></script>')
+      })).pipe(gulp.dest(`${config.destinationPath}/`));
+    }
+    return gulp.src(`${config.destinationPath}/`);
   });
 };

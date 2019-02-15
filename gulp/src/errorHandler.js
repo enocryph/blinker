@@ -7,12 +7,12 @@ module.exports = () => {
     overrideBasicConsole: function () {
       let error = console.error;
       console.error = function (message) {
-        error(`${console.colors.foreground_red}Error: ${console.colors.reset}` + message);
+        error(`${core.console.colors.foreground_red}Error: ${core.console.colors.reset}` + message);
       }
     }
   };
 
-  console = {
+  core.console = {
     colors: {
       reset: "\x1b[0m",
       bright: "\x1b[1m",

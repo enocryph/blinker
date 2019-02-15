@@ -1,7 +1,7 @@
 module.exports = () => {
-  blinker.gulp.task('png-sprite', function () {
-        const spriteData = blinker.gulp.src(blinker.config.sourcePath + '/' + blinker.config.pngSpriteDirectory + '/*.png')
-      .pipe(blinker.plugins.png_sprite({
+  gulp.task('png-sprite', function () {
+        const spriteData = gulp.src(config.sourcePath + '/' + config.pngSpriteDirectory + '/*.png')
+      .pipe(plugins.png_sprite({
         imgName: 'sprite.png',
         cssName: 'png-sprite.scss',
         cssFormat: 'scss',
@@ -12,9 +12,9 @@ module.exports = () => {
         }
       }));
 
-    const destImg = spriteData.img.pipe(blinker.gulp.dest(blinker.config.temporaryPath + '/' + blinker.config.pngSpriteDirectory));
-    const destCss = spriteData.css.pipe(blinker.gulp.dest(blinker.config.sourcePath + '/' + blinker.config.stylesDirectory + '/sprites/'));
+    const destImg = spriteData.img.pipe(gulp.dest(config.temporaryPath + '/' + config.pngSpriteDirectory));
+    const destCss = spriteData.css.pipe(gulp.dest(config.sourcePath + '/' + config.stylesDirectory + '/sprites/'));
 
-    return blinker.plugins.merge(destImg, destCss);
+    return plugins.merge(destImg, destCss);
   });
 };

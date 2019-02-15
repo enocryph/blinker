@@ -1,48 +1,48 @@
 module.exports = () => {
-  blinker.gulp.task('styles', function () {
-    return blinker.gulp.src('./' + blinker.config.sourcePath + '/' + blinker.config.stylesDirectory + '/style.scss')
-      .pipe(blinker.plugins.sass().on('error', blinker.plugins.sass.logError))
-      .pipe(blinker.plugins.autoprefixer({
+  gulp.task('styles', function () {
+    return gulp.src('./' + config.sourcePath + '/' + config.stylesDirectory + '/style.scss')
+      .pipe(plugins.sass().on('error', plugins.sass.logError))
+      .pipe(plugins.autoprefixer({
         browsers: ['last 10 versions'],
         cascade: 1
       }))
-      .pipe(blinker.plugins.rename('style.css'))
-      .pipe(blinker.gulp.dest(blinker.config.temporaryPath + '/' + blinker.config.stylesDirectory))
-      .pipe(blinker.plugins.browser_sync.reload({stream: true}));
+      .pipe(plugins.rename('style.css'))
+      .pipe(gulp.dest(config.temporaryPath + '/' + config.stylesDirectory))
+      .pipe(plugins.browser_sync.reload({stream: true}));
   });
 
-  blinker.gulp.task('styles:build', function () {
-    let stream = blinker.gulp.src('./' + blinker.config.sourcePath + '/' + blinker.config.stylesDirectory + '/style.scss');
+  gulp.task('styles:build', function () {
+    let stream = gulp.src('./' + config.sourcePath + '/' + config.stylesDirectory + '/style.scss');
 
-    if (blinker.config.css_source_maps) {
-      stream = stream.pipe(blinker.plugins.source_maps.init());
+    if (config.css_source_maps) {
+      stream = stream.pipe(plugins.source_maps.init());
     }
 
-    stream = stream.pipe(blinker.plugins.sass().on('error', blinker.plugins.sass.logError))
-      .pipe(blinker.plugins.autoprefixer({
+    stream = stream.pipe(plugins.sass().on('error', plugins.sass.logError))
+      .pipe(plugins.autoprefixer({
         browsers: ['last 10 versions'],
         cascade: 1
       }))
-      .pipe(blinker.plugins.rename('style.css'))
-      .pipe(blinker.gulp.dest(blinker.config.temporaryPath + '/' + blinker.config.stylesDirectory))
-      .pipe(blinker.plugins.csso());
+      .pipe(plugins.rename('style.css'))
+      .pipe(gulp.dest(config.temporaryPath + '/' + config.stylesDirectory))
+      .pipe(plugins.csso());
 
-    if (blinker.config.css_source_maps) {
-      stream = stream.pipe(blinker.plugins.source_maps.write());
+    if (config.css_source_maps) {
+      stream = stream.pipe(plugins.source_maps.write());
     }
 
-    stream = stream.pipe(blinker.plugins.rename('style.min.css'))
-      .pipe(blinker.gulp.dest(blinker.config.temporaryPath + '/' + blinker.config.stylesDirectory))
-      .pipe(blinker.plugins.browser_sync.reload({stream: true}));
+    stream = stream.pipe(plugins.rename('style.min.css'))
+      .pipe(gulp.dest(config.temporaryPath + '/' + config.stylesDirectory))
+      .pipe(plugins.browser_sync.reload({stream: true}));
     return stream;
   });
 
-  blinker.gulp.task('styles:inline', function () {
-    if (blinker.config.inline_css) {
-      return blinker.gulp.src('./' + blinker.config.destinationPath + '/**/*.{html,htm}')
-        .pipe(blinker.plugins.inline_css())
-        .pipe(blinker.gulp.dest('./' + blinker.config.destinationPath));
+  gulp.task('styles:inline', function () {
+    if (config.inline_css) {
+      return gulp.src('./' + config.destinationPath + '/**/*.{html,htm}')
+        .pipe(plugins.inline_css())
+        .pipe(gulp.dest('./' + config.destinationPath));
     }
-    return blinker.gulp.src('./' + blinker.config.destinationPath + '/**/*.html');
+    return gulp.src('./' + config.destinationPath + '/**/*.html');
   });
 };

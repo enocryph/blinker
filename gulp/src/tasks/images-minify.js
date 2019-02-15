@@ -1,22 +1,22 @@
 module.exports = () => {
-  blinker.gulp.task('images:minify', () => {
-    if (!blinker.config.minify_images) {
-      return blinker.gulp.src([
-        blinker.config.sourcePath + '/' + blinker.config.imagesDirectory + '/**/*.{png,jpg,gif}',
-        '!./' + blinker.config.sourcePath + '/' + blinker.config.imagesDirectory + '/png_sprite/**/*',
+  gulp.task('images:minify', () => {
+    if (!config.minify_images) {
+      return gulp.src([
+        config.sourcePath + '/' + config.imagesDirectory + '/**/*.{png,jpg,gif}',
+        '!./' + config.sourcePath + '/' + config.imagesDirectory + '/png_sprite/**/*',
       ])
-        .pipe(blinker.gulp.dest(blinker.config.temporaryPath + '/' + blinker.config.imagesDirectory));
+        .pipe(gulp.dest(config.temporaryPath + '/' + config.imagesDirectory));
     }
 
-    return blinker.gulp.src([
-      blinker.config.sourcePath + '/' + blinker.config.imagesDirectory + '/**/*.{png,jpg,gif}',
-      '!./' + blinker.config.sourcePath + '/' + blinker.config.imagesDirectory + '/png_sprite/**/*',
+    return gulp.src([
+      config.sourcePath + '/' + config.imagesDirectory + '/**/*.{png,jpg,gif}',
+      '!./' + config.sourcePath + '/' + config.imagesDirectory + '/png_sprite/**/*',
     ])
-      .pipe(blinker.plugins.imagemin({
+      .pipe(plugins.imagemin({
         interlaced: true,
         progressive: true,
         optimizationLevel: 5
       }))
-      .pipe(blinker.gulp.dest(blinker.config.temporaryPath + '/' + blinker.config.imagesDirectory));
+      .pipe(gulp.dest(config.temporaryPath + '/' + config.imagesDirectory));
   });
 };

@@ -1,17 +1,17 @@
 module.exports = () => {
-  blinker.gulp.task('templates', function () {
-    if (blinker.config.template_engine === 'twig') {
-      return blinker.gulp.src(`${blinker.config.sourcePath}/${blinker.config.viewsDirectory}/*.twig`)
-        .pipe(blinker.plugins.twig({trace: false, debug: false}))
-        .pipe(blinker.gulp.dest(`${blinker.config.temporaryPath}`))
-        .pipe(blinker.plugins.browser_sync.reload({stream: true}));
+  gulp.task('templates', function () {
+    if (config.template_engine === 'twig') {
+      return gulp.src(`${config.sourcePath}/${config.viewsDirectory}/*.twig`)
+        .pipe(plugins.twig({trace: false, debug: false}))
+        .pipe(gulp.dest(`${config.temporaryPath}`))
+        .pipe(plugins.browser_sync.reload({stream: true}));
 
-    } else if (blinker.config.template_engine === 'html') {
-      return blinker.gulp.src([
-        `${blinker.config.sourcePath}/${blinker.config.viewsDirectory}/*.{html,htm}`,
+    } else if (config.template_engine === 'html') {
+      return gulp.src([
+        `${config.sourcePath}/${config.viewsDirectory}/*.{html,htm}`,
       ])
-        .pipe(blinker.gulp.dest(`${blinker.config.temporaryPath}`))
-        .pipe(blinker.plugins.browser_sync.reload({stream: true}));
+        .pipe(gulp.dest(`${config.temporaryPath}`))
+        .pipe(plugins.browser_sync.reload({stream: true}));
     }
   });
 };

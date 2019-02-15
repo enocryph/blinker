@@ -1,29 +1,29 @@
 module.exports = () => {
-  blinker.gulp.task('watch', () => {
-    blinker.gulp.watch(
+  gulp.task('watch', () => {
+    gulp.watch(
       [
-        blinker.config.sourcePath + '/' + blinker.config.stylesDirectory + '/**/*.scss',
-        blinker.config.sourcePath + '/' + blinker.config.stylesDirectory + '/**/*.sass',
-        blinker.config.sourcePath + '/' + blinker.config.stylesDirectory + '/**/*.css'
+        config.sourcePath + '/' + config.stylesDirectory + '/**/*.scss',
+        config.sourcePath + '/' + config.stylesDirectory + '/**/*.sass',
+        config.sourcePath + '/' + config.stylesDirectory + '/**/*.css'
       ],
-      blinker.gulp.series('styles'));
-    blinker.gulp.watch(
+      gulp.series('styles'));
+    gulp.watch(
       [
-        blinker.config.sourcePath + '/' + blinker.config.viewsDirectory + '/**/*.twig',
-        blinker.config.sourcePath + '/' + blinker.config.viewsDirectory + '/**/*.html',
-        blinker.config.sourcePath + '/' + blinker.config.viewsDirectory + '/**/*.htm'
+        config.sourcePath + '/' + config.viewsDirectory + '/**/*.twig',
+        config.sourcePath + '/' + config.viewsDirectory + '/**/*.html',
+        config.sourcePath + '/' + config.viewsDirectory + '/**/*.htm'
       ],
-      blinker.gulp.series('templates'));
-    blinker.gulp.watch(
+      gulp.series('templates'));
+    gulp.watch(
       [
-        './' + blinker.config.sourcePath + '/' + blinker.config.javascriptDirectory + '/**/*.js',
-        '!./' + blinker.config.sourcePath + '/' + blinker.config.javascriptDirectory + '/libraries.js'
+        './' + config.sourcePath + '/' + config.javascriptDirectory + '/**/*.js',
+        '!./' + config.sourcePath + '/' + config.javascriptDirectory + '/libraries.js'
       ],
-      blinker.gulp.series('scripts'));
-    blinker.gulp.watch([blinker.config.sourcePath + '/' + blinker.config.pngSpriteDirectory + '/*.png'],  blinker.gulp.series('png-sprite'));
-    blinker.gulp.watch(['./' + blinker.config.sourcePath + '/' + blinker.config.imagesDirectory + '/**/*'],  blinker.gulp.series('images:copy'));
-    blinker.gulp.watch(['./' + blinker.config.sourcePath + '/' + blinker.config.fontsDirectory + '/**/*'],  blinker.gulp.series('fonts:copy'));
-    blinker.gulp.watch(['./' + blinker.config.sourcePath + '/' + blinker.config.svgSpriteDirectory + '/**/*.svg'],  blinker.gulp.series('svg:sprite'));
-    blinker.gulp.watch(['./' + blinker.config.sourcePath + '/' + blinker.config.svgInlineSpriteDirectory + '/**/*.svg'],  blinker.gulp.series('svg:inline'));
+      gulp.series('scripts'));
+    gulp.watch([config.sourcePath + '/' + config.pngSpriteDirectory + '/*.png'],  gulp.series('png-sprite'));
+    gulp.watch(['./' + config.sourcePath + '/' + config.imagesDirectory + '/**/*'],  gulp.series('images:copy'));
+    gulp.watch(['./' + config.sourcePath + '/' + config.fontsDirectory + '/**/*'],  gulp.series('fonts:copy'));
+    gulp.watch(['./' + config.sourcePath + '/' + config.svgSpriteDirectory + '/**/*.svg'],  gulp.series('svg:sprite'));
+    gulp.watch(['./' + config.sourcePath + '/' + config.svgInlineSpriteDirectory + '/**/*.svg'],  gulp.series('svg:inline'));
   });
 };

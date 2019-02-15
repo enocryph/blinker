@@ -1,12 +1,12 @@
 module.exports = () => {
-  blinker.gulp.task('styles:critical', function () {
-    if (blinker.config.critical_css) {
-      return blinker.gulp.src(blinker.config.destinationPath + '/**/*.{html,htm}')
-        .pipe(blinker.plugins.critical({
+  gulp.task('styles:critical', function () {
+    if (config.critical_css) {
+      return gulp.src(config.destinationPath + '/**/*.{html,htm}')
+        .pipe(plugins.critical({
           inline: false,
-          base: `${blinker.config.destinationPath}/`,
+          base: `${config.destinationPath}/`,
           minify: true,
-          css: [`${blinker.config.destinationPath}/${blinker.config.stylesDirectory}/style.css`],
+          css: [`${config.destinationPath}/${config.stylesDirectory}/style.css`],
           dimensions: [{
             height: 480,
             width: 320
@@ -18,9 +18,9 @@ module.exports = () => {
         .on('error', function (err) {
           console.error(err.message);
         })
-        .pipe(blinker.gulp.dest(blinker.config.destinationPath + '/critical/'));
+        .pipe(gulp.dest(config.destinationPath + '/critical/'));
     }
 
-    return blinker.gulp.src(blinker.config.destinationPath + '/html/**/*.html');
+    return gulp.src(config.destinationPath + '/html/**/*.html');
   });
 };

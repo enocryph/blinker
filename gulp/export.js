@@ -10,5 +10,7 @@ module.exports = [
   './gulp/src/tasks/images-minify',
   './gulp/src/tasks/copy',
   './gulp/src/tasks/svg',
-  './gulp/src/tasks/critical-css'
+  './gulp/src/tasks/critical-css',
+  './gulp/src/tasks/screenshot',
+  './gulp/src/tasks/iconic'
 ];

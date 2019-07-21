@@ -9,6 +9,7 @@
   "svgSpriteDirectory": "images/svg_sprite",
   "svgInlineSpriteDirectory": "images/svg_sprite_inline",
   "criticalDirectory": "critical",
+  "iconicFontDirectory": "images/iconic",
   "sourcePath": "src/app",
   "destinationPath": "public",
   "temporaryPath": "src/.tmp",

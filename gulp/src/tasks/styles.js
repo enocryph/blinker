@@ -1,18 +1,28 @@
 module.exports = () => {
   gulp.task('styles', function () {
-    return gulp.src(`./${config.sourcePath}/${config.stylesDirectory}/style.scss`)
-      .pipe(plugins.sass().on('error', plugins.sass.logError))
+    let stream = gulp.src(`./${config.sourcePath}/${config.stylesDirectory}/*.scss`);
+
+    if (config.css_source_maps) {
+      stream = stream.pipe(plugins.source_maps.init());
+    }
+
+    stream.pipe(plugins.sass().on('error', plugins.sass.logError))
       .pipe(plugins.autoprefixer({
         browsers: ['last 10 versions'],
         cascade: 1
       }))
-      .pipe(plugins.rename('style.css'))
-      .pipe(gulp.dest(`${config.temporaryPath}/${config.stylesDirectory}`))
-      .pipe(plugins.browser_sync.reload({stream: true}));
+      .pipe(gulp.dest(`${config.temporaryPath}/${config.stylesDirectory}`));
+
+    if (config.css_source_maps) {
+      stream = stream.pipe(plugins.source_maps.write());
+    }
+
+    stream.pipe(plugins.browser_sync.reload({stream: true}));
+    return stream;
   });
 
   gulp.task('styles:build', function () {
-    let stream = gulp.src(`./${config.sourcePath}/${config.stylesDirectory}/style.scss`);
+    let stream = gulp.src(`./${config.sourcePath}/${config.stylesDirectory}/*.scss`);
 
     if (config.css_source_maps) {
       stream = stream.pipe(plugins.source_maps.init());
@@ -23,7 +33,6 @@ module.exports = () => {
         browsers: ['last 10 versions'],
         cascade: 1
       }))
-      .pipe(plugins.rename('style.css'))
       .pipe(gulp.dest(`${config.temporaryPath}/${config.stylesDirectory}`))
       .pipe(plugins.csso());
 
@@ -31,8 +40,7 @@ module.exports = () => {
       stream = stream.pipe(plugins.source_maps.write());
     }
 
-    stream = stream.pipe(plugins.rename('style.min.css'))
-      .pipe(gulp.dest(config.temporaryPath + '/' + config.stylesDirectory))
+    stream = stream.pipe(gulp.dest(config.temporaryPath + '/' + config.stylesDirectory))
       .pipe(plugins.browser_sync.reload({stream: true}));
     return stream;
   });

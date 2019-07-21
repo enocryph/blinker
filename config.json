@@ -8,6 +8,7 @@
   "fontsDirectory": "fonts",
   "svgSpriteDirectory": "images/svg_sprite",
   "svgInlineSpriteDirectory": "images/svg_sprite_inline",
+  "iconicFontDirectory": "images/iconic",
   "criticalDirectory": "critical",
   "sourcePath": "src/app",
   "destinationPath": "public",

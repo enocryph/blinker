@@ -27,7 +27,10 @@ global.plugins = {
   replace: require('gulp-replace'),
   inline_css: require('gulp-inline-css'),
   dom_src: require('gulp-dom-src'),
-  obfuscator: require('gulp-javascript-obfuscator')
+  obfuscator: require('gulp-javascript-obfuscator'),
+  webshot: require('gulp-webshot'),
+  iconfont: require('gulp-iconfont'),
+  iconfontCss: require('gulp-iconfont-css'),
 };
 
 core.forEach(taskPath => {
@@ -42,16 +45,23 @@ core.errorHandler.initialize();
 
 gulp.task('dev', gulp.series(
   gulp.parallel('clean'),
+  gulp.parallel('iconic'),
   gulp.parallel('png-sprite', 'images:copy', 'fonts:copy', 'svg:sprite', 'svg:inline'),
   gulp.parallel('templates', 'styles', 'scripts:libraries', 'scripts'),
+  gulp.parallel('screenshot'),
+  gulp.parallel('images:screenshots'),
   gulp.parallel('watch', 'serve')
 ));
 
 gulp.task('build', gulp.series(
   gulp.parallel('clean'),
+  gulp.parallel('iconic'),
   gulp.parallel('png-sprite', 'images:copy', 'fonts:copy', 'svg:sprite', 'svg:inline'),
   gulp.parallel('images:minify', 'templates', 'styles:build', 'scripts:libraries', 'scripts'),
+  gulp.parallel('screenshot'),
+  gulp.parallel('images:screenshots'),
   gulp.parallel('dist', 'scripts:build'),
   gulp.parallel('styles:inline', 'scripts:replace'),
-  gulp.parallel('styles:critical')
+  gulp.parallel('styles:critical'),
 ));
+

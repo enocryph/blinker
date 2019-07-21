@@ -25,5 +25,6 @@ module.exports = () => {
     gulp.watch([`./${config.sourcePath}/${config.fontsDirectory}/**/*`], gulp.series('fonts:copy'));
     gulp.watch([`./${config.sourcePath}/${config.svgSpriteDirectory}/**/*.svg`], gulp.series('svg:sprite'));
     gulp.watch([`./${config.sourcePath}/${config.svgInlineSpriteDirectory}/**/*.svg`], gulp.series('svg:inline'));
+    gulp.watch([`./${config.sourcePath}/${config.iconicFontDirectory}/**/*.svg`], gulp.series('iconic'));
   });
 };

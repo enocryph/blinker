@@ -46,8 +46,6 @@ gulp.task('dev', gulp.series(
   gulp.parallel('iconic'),
   gulp.parallel('png-sprite', 'images:copy', 'fonts:copy', 'svg:sprite', 'svg:inline'),
   gulp.parallel('templates', 'styles', 'scripts:libraries', 'scripts'),
-  gulp.parallel('screenshot'),
-  gulp.parallel('images:screenshots'),
   gulp.parallel('watch', 'serve')
 ));
 
@@ -56,8 +54,6 @@ gulp.task('build', gulp.series(
   gulp.parallel('iconic'),
   gulp.parallel('png-sprite', 'images:copy', 'fonts:copy', 'svg:sprite', 'svg:inline'),
   gulp.parallel('images:minify', 'templates', 'styles:build', 'scripts:libraries', 'scripts'),
-  gulp.parallel('screenshot'),
-  gulp.parallel('images:screenshots'),
   gulp.parallel('dist', 'scripts:build'),
   gulp.parallel('styles:inline', 'scripts:replace'),
   gulp.parallel('styles:critical'),

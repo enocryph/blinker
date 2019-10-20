@@ -12,16 +12,6 @@ module.exports = () => {
       .pipe(plugins.browser_sync.reload({stream: true}));
   });
 
-  gulp.task('images:screenshots', function () {
-    return gulp.src(
-      [
-        `./${config.sourcePath}/${config.imagesDirectory}/pages/*`,
-      ]
-    )
-      .pipe(gulp.dest(config.temporaryPath + '/' + config.imagesDirectory + '/pages'))
-      .pipe(plugins.browser_sync.reload({stream: true}));
-  });
-
   gulp.task('fonts:copy', function () {
     return gulp.src([`./${config.sourcePath}/${config.fontsDirectory}/**/*`])
       .pipe(gulp.dest(`${config.temporaryPath}/${config.fontsDirectory}`))

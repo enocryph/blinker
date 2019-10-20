@@ -26,9 +26,7 @@ global.plugins = {
   cheerio: require('gulp-cheerio'),
   replace: require('gulp-replace'),
   inline_css: require('gulp-inline-css'),
-  dom_src: require('gulp-dom-src'),
   obfuscator: require('gulp-javascript-obfuscator'),
-  webshot: require('gulp-webshot'),
   iconfont: require('gulp-iconfont'),
   iconfontCss: require('gulp-iconfont-css'),
 };

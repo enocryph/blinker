@@ -8,7 +8,7 @@ module.exports = () => {
 
     stream.pipe(plugins.sass().on('error', plugins.sass.logError))
       .pipe(plugins.autoprefixer({
-        browsers: ['last 10 versions'],
+        overrideBrowserslist: ['last 10 versions'],
         cascade: 1
       }))
       .pipe(gulp.dest(`${config.temporaryPath}/${config.stylesDirectory}`));

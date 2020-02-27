@@ -12,10 +12,11 @@ module.exports = () => {
       [
         `${config.sourcePath}/${config.viewsDirectory}/**/*.twig`,
         `${config.sourcePath}/${config.viewsDirectory}/**/*.html`,
-        `${config.sourcePath}/${config.viewsDirectory}/**/*.htm`
+        `${config.sourcePath}/${config.viewsDirectory}/**/*.htm`,
+        `!${config.sourcePath}/${config.viewsDirectory}/index.twig`,
       ],
       {usePolling: true},
-      gulp.series('templates'));
+      gulp.series('generate-index', 'templates'));
     gulp.watch(
       [
         `./${config.sourcePath}/${config.javascriptDirectory}/**/*.js`,

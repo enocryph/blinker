@@ -1,1 +1,64 @@
-Welcome
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="noindex">
+    <title>Pages</title>
+</head>
+<style>
+    body {
+        padding: 0;
+        max-width: 900px;
+        margin: 0 auto;
+        font-family: sans-serif;
+        background: #ebebeb;
+        padding-top: 30px;
+    }
+
+    .pages__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .pages__link {
+        text-decoration: none;
+        width: 100%;
+        padding: 6px 10px;
+        padding-left: 28px;
+        display: block;
+        text-transform: lowercase;
+        font-size: 14px;
+        color: #000;
+        border-radius: 4px;
+        transition: .3s;
+        position: relative;
+    }
+
+    .pages__link:after {
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 6px;
+        width: 12px;
+        height: 16px;
+        background-repeat: no-repeat;
+        background-image: url("data:image/svg+xml;base64,PHN2ZyBmb2N1c2FibGU9ImZhbHNlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDM4NCA1MTIiIGNsYXNzPSJzdmctaW5saW5lLS1mYSBmYS1maWxlLWNvZGUgZmEtdy0xMiBmYS0yeCI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMzg0IDEyMS45NDFWMTI4SDI1NlYwaDYuMDU5YzYuMzY1IDAgMTIuNDcgMi41MjkgMTYuOTcxIDcuMDI5bDk3Ljk0MSA5Ny45NDFBMjQuMDA1IDI0LjAwNSAwIDAgMSAzODQgMTIxLjk0MXpNMjQ4IDE2MGMtMTMuMiAwLTI0LTEwLjgtMjQtMjRWMEgyNEMxMC43NDUgMCAwIDEwLjc0NSAwIDI0djQ2NGMwIDEzLjI1NSAxMC43NDUgMjQgMjQgMjRoMzM2YzEzLjI1NSAwIDI0LTEwLjc0NSAyNC0yNFYxNjBIMjQ4ek0xMjMuMjA2IDQwMC41MDVhNS40IDUuNCAwIDAgMS03LjYzMy4yNDZsLTY0Ljg2Ni02MC44MTJhNS40IDUuNCAwIDAgMSAwLTcuODc5bDY0Ljg2Ni02MC44MTJhNS40IDUuNCAwIDAgMSA3LjYzMy4yNDZsMTkuNTc5IDIwLjg4NWE1LjQgNS40IDAgMCAxLS4zNzIgNy43NDdMMTAxLjY1IDMzNmw0MC43NjMgMzUuODc0YTUuNCA1LjQgMCAwIDEgLjM3MiA3Ljc0N2wtMTkuNTc5IDIwLjg4NHptNTEuMjk1IDUwLjQ3OWwtMjcuNDUzLTcuOTdhNS40MDIgNS40MDIgMCAwIDEtMy42ODEtNi42OTJsNjEuNDQtMjExLjYyNmE1LjQwMiA1LjQwMiAwIDAgMSA2LjY5Mi0zLjY4MWwyNy40NTIgNy45N2E1LjQgNS40IDAgMCAxIDMuNjggNi42OTJsLTYxLjQ0IDIxMS42MjZhNS4zOTcgNS4zOTcgMCAwIDEtNi42OSAzLjY4MXptMTYwLjc5Mi0xMTEuMDQ1bC02NC44NjYgNjAuODEyYTUuNCA1LjQgMCAwIDEtNy42MzMtLjI0NmwtMTkuNTgtMjAuODg1YTUuNCA1LjQgMCAwIDEgLjM3Mi03Ljc0N0wyODQuMzUgMzM2bC00MC43NjMtMzUuODc0YTUuNCA1LjQgMCAwIDEtLjM3Mi03Ljc0N2wxOS41OC0yMC44ODVhNS40IDUuNCAwIDAgMSA3LjYzMy0uMjQ2bDY0Ljg2NiA2MC44MTJhNS40IDUuNCAwIDAgMS0uMDAxIDcuODc5eiIgY2xhc3M9IiI+PC9wYXRoPjwvc3ZnPgo=");
+        transform: translateY(-50%);
+    }
+
+    .pages__link:hover {
+        background: #fff;
+    }
+</style>
+<body>
+<section class="pages">
+    <ul class="pages__list">
+        {% block pages %}<li class="pages__item"><a class="pages__link" href="/hello.html">hello.html</a></li>{% endblock %}
+    </ul>
+</section>
+</body>
+</html>

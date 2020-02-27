@@ -161,9 +161,14 @@ module.exports = () => {
 
   gulp.task('scripts:replace', () => {
     if (config.concatenate_scripts) {
-      gulp.src(`${config.destinationPath}/*.{html,htm}`).pipe(plugins.cheerio(function ($) {
-        $('script').remove();
-        $('body').append('<script src="js/all.min.js"></script>')
+      gulp.src(`${config.destinationPath}/*.{html,htm}`).pipe(plugins.cheerio({
+        run: function ($) {
+          $('script[src]').remove();
+          $('body').append('<script src="js/all.min.js"></script>')
+        },
+        parserOptions: {
+          decodeEntities: false
+        },
       })).pipe(gulp.dest(`${config.destinationPath}/`));
     }
     return gulp.src(`${config.destinationPath}/`);
